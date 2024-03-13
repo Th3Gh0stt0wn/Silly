@@ -1,0 +1,150 @@
+import pygame
+pygame.init
+
+pii = pygame.transform.scale(pygame.image.load("pi.png"), (80,80))
+### class definition--------------------------------------------
+class clover:
+    def __init__(self, xpos, ypos):
+        self.xpos = xpos
+        self.ypos = ypos
+        
+    def draw(self):
+        #stem
+        pygame.draw.rect(screen, (83, 196, 63), (self.xpos-10, self.ypos+20, 15, 50))
+        #leaves
+        pygame.draw.circle(screen, (93, 216, 71), (self.xpos-15, self.ypos+20), 20) 
+        pygame.draw.circle(screen, (71, 168, 54), (self.xpos-15, self.ypos-10), 20)
+        pygame.draw.circle(screen, (71, 168, 54), (self.xpos+15, self.ypos+20), 20) 
+        pygame.draw.circle(screen, (93, 216, 71), (self.xpos+15, self.ypos-10), 20)
+        #add one more leaf here!
+        
+        
+class pi:
+    def __init__(self, xpos, ypos):
+        self.xpos = xpos
+        self.ypos = ypos
+        
+    def draw(self):
+        #leaves
+        screen.blit(pii, (self.xpos, self.ypos))
+        #add one more leaf here!
+
+
+# end of class definition-----------------------------------------
+
+#stamp (aka instantiate) clovers
+#
+clover1 = clover(195, 10)#1
+clover2 = clover(495, 10)#2
+clover3 = clover(795, 10)#3
+# 
+clover4 = clover(195, 800)#4
+clover5 = clover(495, 800)#5
+clover6 = clover(795, 800)#6
+# 
+clover7 = clover(195, 400)#7
+clover8 = clover(495, 400)#8
+clover9 = clover(795, 400)#9
+#
+clover10 = clover(50, 200)#10
+clover11 = clover(350, 200)#11
+clover12 = clover(650, 200)#12
+#
+clover13 = clover(50, 600)#13
+clover14 = clover(350, 600)#14
+clover15 = clover(650, 600)#15
+
+#
+pi1 = pi(150, 180)
+pi2 = pi(450, 180)
+pi3 = pi(750, 180)
+#
+pi4 = pi(150, 580)
+pi5 = pi(450, 580)
+pi6 = pi(750, 580)
+#
+pi7 = pi(10, 10)
+pi8 = pi(300, 10)
+pi9 = pi(600, 10)
+#
+pi10 = pi(10, 400)
+pi11 = pi(300, 400)
+pi12= pi(600, 400)
+#
+pi13 = pi(10, 780)
+pi14 = pi(300, 780)
+pi15 = pi(600, 780)
+
+#creates game screen and caption
+screen = pygame.display.set_mode((800, 800))
+pygame.display.set_caption("clover class demo")
+
+#game variables
+doExit = False #variable to quit out of game loop
+clock = pygame.time.Clock() #sets up a game clock to regulate game speed
+
+
+
+#BEGIN GAME LOOP######################################################
+while not doExit:
+   
+    clock.tick(60) #FPS (frames per second)
+   
+    #pygame's way of listening for events (key presses, mouse clicks, etc)
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+           doExit = True #lets you quit program
+
+    #keyboard input-----------------------------------
+  
+     
+    #render section-----------------------------------
+    screen.fill((255, 255, 255))
+
+    #draw class objects
+    clover1.draw()
+    clover2.draw()
+    clover3.draw()
+    #
+    clover4.draw()
+    clover5.draw()
+    clover6.draw()
+    #
+    clover7.draw()
+    clover8.draw()
+    clover9.draw()
+    #
+    clover10.draw()
+    clover11.draw()
+    clover12.draw()
+    #
+    clover13.draw()
+    clover14.draw()
+    clover15.draw()
+
+    pi1.draw()
+    pi2.draw()
+    pi3.draw()
+    #
+    pi4.draw()
+    pi5.draw()
+    pi6.draw()
+    #
+    pi7.draw()
+    pi8.draw()
+    pi9.draw()
+    #
+    pi10.draw()
+    pi11.draw()
+    pi12.draw()
+    #
+    pi13.draw()
+    pi14.draw()
+    pi15.draw()
+    
+
+
+    pygame.display.flip() #update graphics each game loop
+
+#END GAME LOOP#######################################################
+pygame.quit()
